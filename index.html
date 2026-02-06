@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda Matecraft</title>
+  <style>
+    :root{
+      --blue-600: #1e88ff;
+      --blue-500: #2fa0ff;
+      --blue-700: #0b5ed7;
+      --bg: #9ad9f1;
+      --card: #dff4fb;
+      --danger: #d32f2f;
+      --text: #0a2540;
+    }
+
+    /* Reset / base */
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      background:var(--blue-600);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      font-size:1.5rem;
+      font-weight:700;
+    }
+
+    nav[role="navigation"]{
+      background:var(--blue-500);
+      padding:12px;
+      text-align:center;
+    }
+
+    .nav-toggle {
+      margin:6px;
+      padding:10px 18px;
+      border:none;
+      background:var(--blue-700);
+      color:white;
+      cursor:pointer;
+      border-radius:6px;
+      font-size:0.95rem;
+    }
+    .nav-toggle:focus { outline:3px solid rgba(0,0,0,0.12); box-shadow:0 0 0 3px rgba(30,136,255,0.18); }
+
+    main{
+      max-width:1100px;
+      margin:28px auto;
+      padding:0 16px;
+    }
+
+    .sections {
+      display:grid;
+      gap:22px;
+    }
+
+    .section-title{
+      margin:0 0 8px 0;
+      font-size:1.1rem;
+      font-weight:600;
+      text-align:center;
+    }
+
+    .container {
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      align-items:start;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      text-align:center;
+      box-shadow: 0 2px 8px rgba(10,10,20,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:1.05rem;
+    }
+
+    .card a.buy {
+      display:inline-block;
+      text-decoration:none;
+      background:var(--blue-600);
+      color:white;
+      padding:10px;
+      border-radius:8px;
+      width:100%;
+      box-sizing:border-box;
+      font-weight:600;
+    }
+    .card a.buy:hover{ filter:brightness(.98); }
+    .card a.buy:focus { outline:3px solid rgba(0,0,0,0.08); box-shadow:0 0 0 3px rgba(30,136,255,0.14); }
+
+    .warning{
+      text-align:center;
+      color:var(--danger);
+      font-weight:700;
+      margin:22px 0;
+    }
+
+    footer{
+      background:var(--blue-600);
+      color:white;
+      text-align:center;
+      padding:12px;
+      margin-top:24px;
+    }
+
+    /* small screens */
+    @media (max-width:420px){
+      header{ font-size:1.25rem; padding:14px; }
+      .nav-toggle{ padding:9px 14px; font-size:0.9rem; }
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">Tienda Matecraft</header>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <button class="nav-toggle" data-target="comprar" aria-controls="comprar" aria-pressed="true">▶ Comprar Rango Permanente</button>
+    <button class="nav-toggle" data-target="mejorar" aria-controls="mejorar" aria-pressed="false">▶ Mejorar Rango</button>
+  </nav>
+
+  <main>
+    <!-- COMPRAR -->
+    <section id="comprar" class="sections" data-visible="true" aria-labelledby="comprar-title">
+      <h2 id="comprar-title" class="section-title">Comprar Rangos Permanentes</h2>
+      <div class="container" role="list">
+        <article class="card" role="listitem" aria-label="VIP Plus">
+          <h3>VIP+</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/3" target="_blank" rel="noopener noreferrer" aria-label="Comprar VIP más por 3 dólares">Comprar - $3</a>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Elite">
+          <h3>Elite</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/5" target="_blank" rel="noopener noreferrer" aria-label="Comprar Elite por 5 dólares">Comprar - $5</a>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Master">
+          <h3>Master</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/10" target="_blank" rel="noopener noreferrer" aria-label="Comprar Master por 10 dólares">Comprar - $10</a>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Dios">
+          <h3>Dios</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/14" target="_blank" rel="noopener noreferrer" aria-label="Comprar Dios por 14 dólares">Comprar - $14</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- MEJORAR -->
+    <section id="mejorar" class="sections" data-visible="false" style="display:none;" aria-labelledby="mejorar-title" aria-hidden="true">
+      <h2 id="mejorar-title" class="section-title">Mejorar Rango</h2>
+      <div class="container" role="list">
+        <article class="card" role="listitem" aria-label="VIP a Elite">
+          <h3>VIP+ → Elite</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/3" target="_blank" rel="noopener noreferrer" aria-label="Mejorar VIP más a Elite por 3 dólares">Mejorar - $3</a>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Elite a Master">
+          <h3>Elite → Master</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/4" target="_blank" rel="noopener noreferrer" aria-label="Mejorar Elite a Master por 4 dólares">Mejorar - $4</a>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Master a Dios">
+          <h3>Master → Dios</h3>
+          <a class="buy" href="https://paypal.me/Matecraftmc/5" target="_blank" rel="noopener noreferrer" aria-label="Mejorar Master a Dios por 5 dólares">Mejorar - $5</a>
+        </article>
+      </div>
+    </section>
+
+    <p class="warning" role="note">⚠ No hay devoluciones ⚠</p>
+  </main>
+
+  <footer role="contentinfo">© 2026 Matecraft | Todos los derechos reservados</footer>
+
+  <script>
+    // Toggle visible sections and keep ARIA attributes in sync
+    (function(){
+      const toggles = document.querySelectorAll('.nav-toggle');
+      function show(targetId){
+        const sections = ['comprar','mejorar'];
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          const visible = id === targetId;
+          if(visible){
+            el.style.display = '';
+            el.setAttribute('aria-hidden', 'false');
+            el.setAttribute('data-visible','true');
+          } else {
+            el.style.display = 'none';
+            el.setAttribute('aria-hidden', 'true');
+            el.setAttribute('data-visible','false');
+          }
+        });
+        // update toggle buttons' aria-pressed
+        toggles.forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.target === targetId ? 'true' : 'false');
+        });
+        // move focus to first actionable element in target section for keyboard users
+        const firstAction = document.querySelector('#' + targetId + ' a.buy');
+        if(firstAction) firstAction.focus();
+      }
+
+      toggles.forEach(btn => {
+        btn.addEventListener('click', () => show(btn.dataset.target));
+        btn.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(btn.dataset.target); }
+        });
+      });
+
+      // ensure external links use noopener (already set in markup) - keyboard safe
+    })();
+  </script>
+</body>
+</html>
